@@ -48,7 +48,7 @@ const Products = ({ product }) => {
       };
 
     return (
-        <div className="flex flex-col  border shadow-lg  hover:shadow-cyan-500/50 hover:scale-105 hover:border-[1px] border-gray-400 transition duration-200 ease-in gap-3 p-4 mt-6 ml-5 rounded-xl">
+        <div className="flex flex-col shadow-lg  hover:shadow-cyan-500/50 hover:border-[1px] border-gray-400 transition duration-200 ease-in gap-3 p-4 mt-6 ml-5">
             <div className="flex items-center justify-evenly">
                 <MdKeyboardDoubleArrowLeft  fontSize="1.75rem"
                 onClick={prev}
@@ -58,7 +58,7 @@ const Products = ({ product }) => {
                     <img
                         src={product.images[currentImageIndex]}
                         alt={product.title}
-                        className="object-fit h-full w-full rounded-lg"
+                        className="object-fit h-full w-full rounded-lg scroll-smooth"
                     />
                     <div className=" absolute top-2 right-3">
                     {wish.some((p) => p.id === product.id) ? (
@@ -98,7 +98,7 @@ const Products = ({ product }) => {
             </div>
             <div>
                 <p className=" text-gray-600 font-normal text-[11px] text-left">
-                    {product.description.slice(0, 45) + "..."}
+                    {product.description.slice(0, 35) + "..."}
                 </p>
             </div>
             <div className="flex gap-6 items-center">
@@ -109,24 +109,20 @@ const Products = ({ product }) => {
             </div>
 
             {/*  */}
-            <div className="flex items-center mt-2 gap-4 justify-between">
-                <button className="text-sm w-1/2 text-white font-semibold bg-green-700 hover:bg-green-800 py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in cursor-pointer">
-                    <BsLightningFill className="inline-block transition duration-300 ease-in cursor-pointer mr-1" />
-                    Buy Now
-                </button>
+            <div className="flex items-center ">
                 {cart.some((p) => p.id === product.id) ? (
                     <button
                         onClick={removeFromCart}
-                        className="text-sm w-1/2 text-white font-semibold bg-red-600 hover:bg-red-700 py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in cursor-pointer"
+                        className="text-sm w-full text-white font-semibold bg-red-600 hover:bg-red-700 py-1 px-4 rounded-md shadow-sm transition duration-300 ease-in cursor-pointer"
                     >
                         Remove
                     </button>
                 ) : (
                     <button
                         onClick={addToCart}
-                        className="text-sm w-1/2 text-white font-semibold bg-orange-600 hover:bg-orange-700 py-2 px-4 rounded-md shadow-sm transition duration-300 ease-in cursor-pointer"
+                        className="text-sm w-full text-black border border-black font-semibold py-1 px-4 rounded-md shadow-sm transition duration-300 ease-in cursor-pointer"
                     >
-                        <ImCart className="inline-block mr-2 hover:text-orange-600 transition duration-300 ease-in cursor-pointer" />
+                        <ImCart className="inline-block mr-2 transition duration-300 ease-in cursor-pointer" />
                         Add to Cart
                     </button>
                 )}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Spinner from '../components/Spinner';
 import Products from '../components/Products';
+import Category from '../components/Category';
 
 function Home() {
 
@@ -29,12 +30,16 @@ function Home() {
     },[])
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className='grid grid-cols-12'>
+        <div className=' col-span-2 border-gray-300 border-[1px] m-1'>
+            <Category/>
+        </div>
+        <div className=" col-span-10 bg-gray-100 min-h-screen">
         {
             loading ? <Spinner/>
              : 
             products.length > 0 ?
-             (<div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto p-4">
+             (<div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-auto">
                 {
                     products.map( (product) => (
                         <Products key={product.id} product={product}/>
@@ -47,6 +52,8 @@ function Home() {
              </div>)
         }
     </div>
+    </div>
+    
   )
 }
 
