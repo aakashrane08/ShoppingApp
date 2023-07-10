@@ -9,32 +9,32 @@ const Category = () => {
         <div className='flex flex-col gap-2'>
             <div className=' check cursor-pointer space-x-3'>
                 <input type='checkbox' id='smartphone'></input>
-                <label for="smartphone"> Smartphones</label>
+                <label htmlFor="smartphone"> Smartphones</label>
             </div>
 
             <div className='check cursor-pointer space-x-3'>
                 <input type='checkbox' id='laptops'></input>
-                <label for="laptops"> Laptops</label>
+                <label htmlFor="laptops"> Laptops</label>
             </div>
 
             <div className='check cursor-pointer space-x-3'>
                 <input type='checkbox' id="fragrances"></input>
-                <label for="fragrances"> Fragrances</label>
+                <label htmlFor="fragrances"> Fragrances</label>
             </div>
 
             <div className='check cursor-pointer space-x-3'>
                 <input type='checkbox' id='skincare'></input>
-                <label for="skincare"> Scincare</label>
+                <label htmlFor="skincare"> Scincare</label>
             </div>
 
             <div className='check cursor-pointer space-x-3'>
                 <input type='checkbox' id='groceries'></input>
-                <label for="groceries"> Groceries</label>
+                <label htmlFor="groceries"> Groceries</label>
             </div>
 
             <div className='check cursor-pointer space-x-3'>
                 <input type='checkbox' id='home-decoration'></input>
-                <label for="home-decoration"> Home-Decoration</label>
+                <label htmlFor="home-decoration"> Home-Decoration</label>
             </div> 
         </div>
     </div>

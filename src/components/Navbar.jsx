@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { GoSearch } from "react-icons/go"
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../context/AppContext";
 
 function Navbar() {
   const { cart } = useSelector((state) => state);
+  const { handleChange } = useContext(AppContext);
 
   return (
-    <div className="flex justify-around w-full lg:mx-auto items-center h-16 md:mx-auto bg-blue-500 fixed">
+    <nav className="flex justify-evenly w-full lg:mx-auto items-center h-16 md:mx-auto bg-blue-500 fixed">
       <NavLink to="/">
         <img src="../logo.png" alt="BuyCart" className="w-40" />
       </NavLink>
+
+      <form className=" relative">
+        <input
+          className="py-2 pr-56 pl-4 rounded-full border-none border-black"
+          type="text"
+          placeholder="Search for Products"
+          onChange={handleChange}
+        />
+        <GoSearch className="absolute right-4 top-1/3 cursor-text"/>
+      </form>
+
       <div className=" md:flex md:items-center font-semibold text-slate-100 mr-5 space-x-8">
         <p className="flex items-center h-full cursor-pointer relative group">
           <FaUser className=" mr-2" />
@@ -59,7 +72,7 @@ function Navbar() {
           </div>
         </NavLink>
       </div>
-    </div>
+    </nav>
   );
 }
 
